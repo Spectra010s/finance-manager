@@ -1,98 +1,69 @@
-.
+# 💰 Finance Manager (CLI-Based Expense System)
 
-💰 Finance Manager (CLI-Based Expense System)
+A **command-line Personal Finance Manager** built in **Python** to simulate a structured backend-style **CRUD system** with persistent **JSON storage**.
 
-A command-line Personal Finance Manager built in Python to simulate a structured backend-style CRUD system with persistent JSON storage.
+This project focuses on strengthening **core software engineering fundamentals** before transitioning into AI and data systems.
 
-This project focuses on strengthening core software engineering fundamentals before transitioning into AI and data systems.
-
-
-📌 Project Purpose
+## 📌 Project Purpose
 
 Before building AI models, it is critical to understand:
 
-1.Data structuring
-
-2.State management
-
-3.CRUD architecture
-
-4.Persistent storage handling
-
-5.Clean system design
+1. **Data structuring**
+2. **State management**
+3. **CRUD architecture**
+4. **Persistent storage handling**
+5. **Clean system design**
 
 This project was built to reinforce those foundations.
 
-🚀 Features
-🔹 Expense Management (CRUD)
+## 🚀 Features 
 
-Add Expense
+### 🔹 Expense Management (CRUD)
 
-Generates a UUID for each entry
+* **- Add Expense**
+    - Generates a **UUID** for each entry
+    - **Validates** input
+    - Automatically **timestamps** entries
+    - **Persists** to JSON
+* **- Edit Expense**
+    - Update **amount**
+    - Update **description**
+    - Update **category**
+    - Supports **partial updates**
+    - Changes are **saved immediately**
+* **- Delete Expense by ID**
+    - **O(1) lookup** using dictionary storage
+    - **Safe deletion** with validation
+    - **JSON updated** instantly
+* **- Delete All Expenses**
+    - **Clears** stored records
+    - **Resets** JSON file
 
-Validates input
+### 🔹 Analytics & Queries 
 
-Automatically timestamps entries
+* **- View all expenses**
+* **- Filter by category**
+* **- Monthly spending summary**
+* **- Show highest expense**
+* **- Dynamic total calculation** (computed, not stored)
 
-Persists to JSON
+## 🧱 Tech Stack
 
-Edit Expense
+| Stack | description |
+| :--- | :--- |
+| **Python 3** | Core language |
+| **uuid** | unique identifiers |
+| **json** | persistent storage |
+| **datetime** | timestamps |
+| **os** | file handling |
 
-Update amount
+> **No external dependencies.**
 
-Update description
-
-Update category
-
-Supports partial updates
-
-Changes are saved immediately
-
-Delete Expense by ID
-
-O(1) lookup using dictionary storage
-
-Safe deletion with validation
-
-JSON updated instantly
-
-Delete All Expenses
-
-Clears stored records
-
-Resets JSON file
-
-
-🔹 Analytics & Queries --
-
-View all expenses
-
-Filter by category
-
-Monthly spending summary
-
-Show highest expense
-
-Dynamic total calculation (computed, not stored)
-
-🧱 Tech Stack
-
-Python 3
-
-uuid — unique identifiers
-
-json — persistent storage
-
-datetime — timestamps
-
-os — file handling
-
-No external dependencies.
-
-🗃 Data Architecture
+## 🗃 Data Architecture
 
 Expenses are stored as a dictionary using UUIDs as keys:
 
+```json
 {
     "uuid1": {
         "amount": 50,
@@ -101,83 +72,87 @@ Expenses are stored as a dictionary using UUIDs as keys:
         "date": "02/26/2026"
     }
 }
-Why Dictionary-Based Storage?
+```
 
-O(1) lookup for edit/delete
+### Why Dictionary-Based Storage?
 
-Cleaner ID-based management
+* **O(1) lookup** for edit/delete
+* **Cleaner ID-based** management
+* Closer to **real backend/database design**
 
-Closer to real backend/database design
+## 🧠 Key Engineering Decisions
 
-🧠 Key Engineering Decisions
+1️⃣ **Dynamic Total Calculation**
 
-1️⃣ Dynamic Total Calculation
+The total is computed dynamically:  
 
-The total is computed dynamically:
+```py
+sum(exp["amount"] for exp in self.expenses.values()) 
+```
 
-sum(exp["amount"] for exp in self.expenses.values())
+This prevents **data inconsistency** and ensures a **single source of truth**.
 
-This prevents data inconsistency and ensures a single source of truth.
+2️⃣ **Centralized Persistence Logic**
 
-2️⃣ Centralized Persistence Logic
+All file-writing operations are handled through a private method: 
 
-All file-writing operations are handled through a private method:
+`def _save(self):`  
 
-def _save(self):
+This enforces **DRY principles** and keeps logic **modular**.
 
-This enforces DRY principles and keeps logic modular.
+3️⃣ **UUID-Based Identification**
 
-3️⃣ UUID-Based Identification
+Each expense is assigned:  
 
-Each expense is assigned:
+`uuid.uuid4()`  
 
-uuid.uuid4()
+This ensures **global uniqueness** and mirrors **production-grade systems**.
 
-This ensures global uniqueness and mirrors production-grade systems.
+## ▶️ Installation & Usage
 
-▶️ Installation & Usage
-Clone the Repository
+### Clone the Repository
+
+```bash
 git clone https://github.com/emmy-py/finance-manager.git
 cd finance-manager
-Run the Application
+```
+
+### Run the Application
+```bash
 python finance_manager.py
-📋 CLI Menu
-1. Add Expense
-2. Delete Expense by ID
-3. Show All Expenses
-4. Filter by Category
-5. Monthly Summary
-6. Show Highest Expense
-7. Show Total
-8. Exit
-📈 What This Project Demonstrates
+```
 
-Clean object-oriented design
+## 📋 CLI Menu
+1. **Add Expense**
+2. **Delete Expense by ID**
+3. **Show All Expenses**
+4. **Filter by Category**
+5. **Monthly Summary**
+6. **Show Highest Expense**
+7. **Show Total**
+8. **Exit**
 
-Dictionary vs list architectural tradeoffs
 
-JSON lifecycle management
+## 📈 What This Project Demonstrates
 
-Safe state mutation
+* **Clean object-oriented design**
+* **Dictionary vs list** architectural tradeoffs
+* **JSON lifecycle management**
+* **Safe state mutation**
+* **Backend-style CRUD implementation**
+* **Foundation building** for AI/data engineering
 
-Backend-style CRUD implementation
+## 🔜 Next Steps
 
-Foundation building for AI/data engineering
+**Planned upgrades:**
+* Convert **JSON data** into **Pandas DataFrame**
+* Add **advanced analytics**
+* Introduce **logging system**
+* Convert into **REST API (FastAPI)**
+* Add **unit testing**
 
-🔜 Next Steps
+---
 
-Planned upgrades:
+## 📄 [License](LICENSE)
 
-Convert JSON data into Pandas DataFrame
-
-Add advanced analytics
-
-Introduce logging system
-
-Convert into REST API (FastAPI)
-
-Add unit testing
-
-📄 License
-
-This project is for educational and portfolio purposes.
+This project is for **educational and portfolio purposes**.
