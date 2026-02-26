@@ -1,0 +1,36 @@
+🔥 TASK 1 (Level Up From Expense Tracker)
+🧩 Build: Personal Finance Manager (Upgraded Version)
+
+Not just expense entry.
+
+
+Add These Features:
+
+1️⃣ add_expense()
+2️⃣ delete_expense()
+3️⃣ edit_expense()
+4️⃣ filter_by_category()
+5️⃣ monthly_summary()
+6️⃣ show_highest_expense()
+
+
+
+New Constraints (Important)
+
+Store each expense with a unique ID
+Data must persist in JSON
+All operations must update the JSON file correctly
+No duplicate logic
+No global variables
+Clean separation of logic inside the class
+
+
+Why This Matters for AI
+
+This simulates:
+
+CRUD operations (like APIs)
+Data preprocessing logic
+Data cleaning workflows
+Structured state management
+This is real engineering discipline, not toy scripting.

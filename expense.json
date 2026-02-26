@@ -1,0 +1,26 @@
+{
+    "66253eaa-45dd-44bf-9b62-401bc61da645": {
+        "amount": 11,
+        "category": "Food",
+        "description": "rice",
+        "date": "02/26/2026"
+    },
+    "14d1cb6b-c40c-494f-bc3b-0541e8bf7065": {
+        "amount": 22,
+        "category": "Utils",
+        "description": "school fees",
+        "date": "02/26/2026"
+    },
+    "b0e6251b-80d5-49eb-820b-9e55ddb4364d": {
+        "amount": 11,
+        "category": "Utils",
+        "description": "light bill",
+        "date": "02/26/2026"
+    },
+    "7b250460-4f86-4eda-a0e7-81afde99fbf0": {
+        "amount": 88,
+        "category": "Food",
+        "description": "rice",
+        "date": "02/26/2026"
+    }
+}
